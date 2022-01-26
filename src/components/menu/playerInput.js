@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import styles from './index.module.css'
 
-function Player (props) {
+function PlayerInput (props) {
 
   return (
-    <div className={styles.form}>
+    <div className={styles.playerInput}>
       <div className={styles.boxIcon}>
-        <img src={props.choice} />
+        <img alt='icon-player' src={props.choice}/>
       </div>
 
       <label className={styles.playerName}>
@@ -21,11 +21,11 @@ function Player (props) {
   )
 }
 
-Player.prototype = {
+PlayerInput.prototype = {
   choice: PropTypes.string,
   player: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func,
 }
 
-export default Player
+export default PlayerInput

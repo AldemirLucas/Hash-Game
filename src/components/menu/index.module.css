@@ -25,7 +25,7 @@
   gap: 20px;
 }
 
-.form {
+.playerInput {
   display: flex;
   flex-direction: row;
 }
@@ -48,7 +48,7 @@
   min-height: 90px;
   top: 70%;
   border-radius: 50%;
-  background-color: var(--font-dark-color);
+  background-color: var(--font-color);
 }
 
 .boxIcon img {

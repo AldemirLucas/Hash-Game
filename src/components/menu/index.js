@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import Button from '../button'
-import Player from './player'
+import PlayerInput from './playerInput'
 import cross from '../assets/cross.svg'
 import circle from '../assets/circle.svg'
 import styles from './index.module.css'
 
-function Menu () {
+function Menu (props) {
   const [firstPlayer, setFirstPlayer] = useState('')
   const [secondPlayer, setSecondPlayer] = useState('')
 
@@ -13,7 +13,11 @@ function Menu () {
     const first = firstPlayer.trim()
     const second = secondPlayer.trim()
 
-    if (first && second !== '') {
+    if (first !== '' && second !== '') {
+      props.onPlay({
+        firstPlayer: first,
+        secondPlayer: second,
+      })
       console.log('foi')
     } else {
       console.log('está faltando o nome de um jogador')
@@ -27,14 +31,14 @@ function Menu () {
       <div className={styles.content}>
 
         <div className={styles.players}>
-          <Player
+          <PlayerInput
             player='Jogador 1'
             choice={cross}
             value={firstPlayer}
             onChange={setFirstPlayer}
           />
 
-          <Player 
+          <PlayerInput 
             player='Jogador 2'
             choice={circle}
             value={secondPlayer}

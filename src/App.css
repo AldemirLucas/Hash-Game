@@ -1,0 +1,16 @@
+.light {
+  --bg-color: #FAF7EE;
+  --bg-light-color: #EEE4DA;
+  --font-color: #756B62;
+  --font-light-color: #B9B5AA;
+  --font-dark-color: #756B62;
+  --secondary-color: #FFE0C6;
+  --secondary-light-color: #ffc595;
+}
+
+.App {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-color);
+}

@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding: 0 15px;
 }
 
 .title {
@@ -51,7 +52,8 @@
 }
 
 .boxIcon img {
-  margin-bottom: 15px;
+  position: absolute;
+  margin-top: 10px;
 }
 
 .playerName {

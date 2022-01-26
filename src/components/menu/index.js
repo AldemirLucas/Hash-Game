@@ -9,6 +9,17 @@ function Menu () {
   const [firstPlayer, setFirstPlayer] = useState('')
   const [secondPlayer, setSecondPlayer] = useState('')
 
+  const PlayerValidation = () => {
+    const first = firstPlayer.trim()
+    const second = secondPlayer.trim()
+
+    if (first && second !== '') {
+      console.log('foi')
+    } else {
+      console.log('está faltando o nome de um jogador')
+    }
+  }
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>JOGO DA VELHA</h1>
@@ -20,19 +31,20 @@ function Menu () {
             player='Jogador 1'
             choice={cross}
             value={firstPlayer}
-            onChage={setFirstPlayer}
+            onChange={setFirstPlayer}
           />
 
           <Player 
             player='Jogador 2'
             choice={circle}
             value={secondPlayer}
-            onChage={setSecondPlayer}
+            onChange={setSecondPlayer}
           />
         </div>
 
         <Button 
           name='JOGAR'
+          onClick={() => PlayerValidation()}
         />
       </div>
     </div>

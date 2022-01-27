@@ -12,7 +12,7 @@ function PlayerInput (props) {
       <label className={styles.playerName}>
         {props.player}
         <input
-          maxLength="15"
+          maxLength="10"
           value={props.name}
           onChange={(e) => props.onChange(e.target.value)}
         />

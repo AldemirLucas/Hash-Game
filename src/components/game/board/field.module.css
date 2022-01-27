@@ -1,0 +1,10 @@
+.field {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-light-color);
+}
+
+.field:hover {
+  background-color: var(--bg-light-color);
+}

@@ -69,6 +69,7 @@
 }
 
 .playerName input {
+  text-align: center;
   box-sizing: border-box;
   background-color: var(--bg-light-color);
   color: var(--font-color);

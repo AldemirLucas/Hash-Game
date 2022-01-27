@@ -3,10 +3,13 @@
   --bg-light-color: #EEE4DA;
   --font-color: #756B62;
   --font-light-color: #B9B5AA;
+  --font-dark-color: #C6AA90;
   --primary-color: #BBADA0;
   --primary-light-color: #CCC0B2;
+  --primary-dark-color: #E1DED3;
   --secondary-color: #FFE0C6;
-  --secondary-light-color: #ffc595;
+  --secondary-light-color: #FFC595;
+  --secondary-dark-color: #F0B17B;
 }
 
 .App {

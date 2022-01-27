@@ -18,7 +18,10 @@ function App() {
     <div className="App light">
       {gameState === 'menu' && <Menu onPlay={handlePlay} />}
       {gameState === 'playing' && 
-        <Game />
+        <Game 
+          firstPlayer={players.firstPlayer}
+          secondPlayer={players.secondPlayer}
+        />
       }
     </div>
   );

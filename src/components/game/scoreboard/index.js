@@ -10,8 +10,8 @@ const widthBar = {
 }
 
 function Scoreboard (props) {
-  const [firstPlayer, setFirstPlayer] = useState(0)
-  const [secondPlayer, setSecondPlayer] = useState(0)
+  const [player1Points, setPlayer1Points] = useState(0)
+  const [player2Points, setPlayer2Points] = useState(0)
 
   return (
     <div className={styles.scoreboard}>
@@ -24,18 +24,18 @@ function Scoreboard (props) {
       <div className={styles.players}>
         <div className={styles.score}>
           <p>{props.firstPlayer}</p>
-          <p>2 vitórias</p>
+          <p>0 vitórias</p>
         </div>
         
         <div className={styles.score}>
           <p>{props.secondPlayer}</p>
-          <p>2 vitórias</p>
+          <p>0 vitórias</p>
         </div>
       </div>
 
       <div className={styles.bar}>
-        <span style={{'width':`12.5%`}}/>
-        <span style={{'width':`25%`}}/>
+        <span style={{'width':`${player1Points}%`}}/>
+        <span style={{'width':`${player2Points}%`}}/>
       </div>
 
     </div>

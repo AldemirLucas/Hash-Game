@@ -1,17 +1,9 @@
-import { useState } from 'react'
 import Trophy from '../../assets/trophy.svg'
 import styles from './index.module.css'
 
-const widthBar = {
-  1 : '12.5',
-  2 : '25',
-  3 : '37.5',
-  4 : '50'
-}
+const widthBar = ['0','12.5','25','37.5','50']
 
 function Scoreboard (props) {
-  const [player1Points, setPlayer1Points] = useState(0)
-  const [player2Points, setPlayer2Points] = useState(0)
 
   return (
     <div className={styles.scoreboard}>
@@ -24,18 +16,18 @@ function Scoreboard (props) {
       <div className={styles.players}>
         <div className={styles.score}>
           <p>{props.firstPlayer}</p>
-          <p>0 vitórias</p>
+          <p>{props.player1Points} vitórias</p>
         </div>
         
         <div className={styles.score}>
           <p>{props.secondPlayer}</p>
-          <p>0 vitórias</p>
+          <p>{props.player2Points} vitórias</p>
         </div>
       </div>
 
       <div className={styles.bar}>
-        <span style={{'width':`${player1Points}%`}}/>
-        <span style={{'width':`${player2Points}%`}}/>
+        <span style={{'width':`${widthBar[props.player1Points]}%`}}/>
+        <span style={{'width':`${widthBar[props.player2Points]}%`}}/>
       </div>
 
     </div>

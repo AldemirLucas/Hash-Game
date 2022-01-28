@@ -5,11 +5,12 @@
  function Board (props) {
   const [isFirstPlayer, setIsFirstPlayer] = useState(true)
   const [mark, setMark] = useState(props.firstPlayer)
-  const [fields] = useState([
+  const [fields, setFields] = useState([
     {mark:''},{mark:''},{mark:''},
     {mark:''},{mark:''},{mark:''},
     {mark:''},{mark:''},{mark:''},
   ])
+
   const WinningCombination = [
     [fields[0],fields[1],fields[2]],
     [fields[3],fields[4],fields[5]],
@@ -24,10 +25,12 @@
   const checkingMarkup = (elm) => {
     if (isFirstPlayer === false) {
       fields[elm.id].mark = mark
+      fields[elm.id].isFliped = true
       setMark(props.firstPlayer)
       setIsFirstPlayer(true)
     } else {
       fields[elm.id].mark = mark
+      fields[elm.id].isFliped = true
       setMark(props.secondPlayer)
       setIsFirstPlayer(false)
     }
@@ -55,7 +58,13 @@
 
   function gameOver(params) {
     if (params === true){
-      console.log(params)
+      setFields([
+        {mark:''},{mark:''},{mark:''},
+        {mark:''},{mark:''},{mark:''},
+        {mark:''},{mark:''},{mark:''},
+      ])
+      setIsFirstPlayer(true)
+      setMark(props.firstPlayer)
     }
   }
 
@@ -67,6 +76,7 @@
           key= {i}
           id= {i}
           mark = {fields[i].mark}
+          isFliped = {fields[i].isFliped}
           checked = {checkingMarkup}
         />
       )}

@@ -10,10 +10,19 @@ function Game (props) {
   const scoreCount = (elm) => {
     if (elm.win === 'firstPlayer') {
       setPlayer1Points(player1Points + 1)
+      victoryCondition(player1Points, props.firstPlayer[0])
     } else {
       setPlayer2Points(player2Points + 1)
+      victoryCondition(player2Points, props.secondPlayer[0])
     }
   }
+
+  const victoryCondition = (points ,name) => {
+    if (points === 3) {
+      console.log(`${name} ganhouuuuu`)
+    }
+  }
+
 
   return (
     <div className={styles.container}>

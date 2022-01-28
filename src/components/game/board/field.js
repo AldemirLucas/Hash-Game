@@ -1,25 +1,23 @@
-import { useState } from 'react'
 import cn from 'classnames'
 import styles from './field.module.css'
 
 function Field (props) {
-  const [flip, setFlip] = useState(false)
   
   const Turn = () => {
-    setFlip(!flip)
     props.checked({
       id : props.id,
-      mark : props.mark
+      mark : props.mark,
+      isFliped : props.isFliped
     })
   }
 
   return (
     <div 
-      className={cn ([styles.field] , {[styles.fliped] : flip})}
+      className={cn ([styles.field] , {[styles.fliped] : props.isFliped})}
       onClick={Turn}
     >
       <img
-        className={cn ([styles.marked] , {[styles.checked] : flip})}
+        className={cn ([styles.marked] , {[styles.checked] : props.isFliped})}
         src={props.mark}
         alt=''
       />

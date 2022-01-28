@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import cn from 'classnames'
-import Cross from '../../assets/cross.svg'
-/*import Circle from '../../assets/circle.svg'*/
 import styles from './field.module.css'
 
-function Field () {
+function Field (props) {
   const [flip, setFlip] = useState(false)
-
+  
   const Turn = () => {
     setFlip(!flip)
-    
+    props.checked({
+      id : props.id,
+      mark : props.mark
+    })
   }
 
   return (
@@ -19,7 +20,7 @@ function Field () {
     >
       <img
         className={cn ([styles.marked] , {[styles.checked] : flip})}
-        src={Cross}
+        src={props.mark}
         alt=''
       />
     </div>

@@ -12,8 +12,6 @@ function App() {
     setPlayers(players)
   }
 
-  console.log(players)
-
   return (
     <div className="App light">
       {gameState === 'menu' && <Menu onPlay={handlePlay} />}

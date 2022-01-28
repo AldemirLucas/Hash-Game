@@ -8,13 +8,14 @@ function Game (props) {
     <div className={styles.container}>
 
       <Scoreboard
-        firstPlayer= {props.firstPlayer}
-        secondPlayer= {props.secondPlayer}
-        player1Points= {1}
-        player2Points= {3}
+        firstPlayer= {props.firstPlayer[0]}
+        secondPlayer= {props.secondPlayer[0]}
       />
       
-      <Board />
+      <Board 
+        firstPlayer= {props.firstPlayer[1]}
+        secondPlayer= {props.secondPlayer[1]}
+      />
     
     </div>
   )

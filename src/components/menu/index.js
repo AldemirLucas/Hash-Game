@@ -15,8 +15,8 @@ function Menu (props) {
 
     if (first !== '' && second !== '') {
       props.onPlay({
-        firstPlayer: first,
-        secondPlayer: second,
+        firstPlayer: [first, cross],
+        secondPlayer: [second, circle]
       })
       console.log('foi')
     } else {

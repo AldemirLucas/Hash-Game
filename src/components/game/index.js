@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ConfettiShow from './confetti'
 import Scoreboard from './scoreboard'
 import Board from './board'
 import WinnerScreen from './winnerScreen'
@@ -20,8 +21,9 @@ function Game (props) {
   }
 
   const victoryCondition = (points ,name) => {
-    if (points === 1) {
+    if (points === 3) {
       setTimeout(() => {
+        ConfettiShow()
         setWinningPlayer({
           show: true,
           name: name

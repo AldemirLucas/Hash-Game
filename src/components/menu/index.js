@@ -6,8 +6,8 @@ import circle from '../assets/circle.svg'
 import styles from './index.module.css'
 
 function Menu (props) {
-  const [firstPlayer, setFirstPlayer] = useState('')
-  const [secondPlayer, setSecondPlayer] = useState('')
+  const [firstPlayer, setFirstPlayer] = useState('Jogador 1')
+  const [secondPlayer, setSecondPlayer] = useState('Jogador 2')
 
   const PlayerValidation = () => {
     const first = firstPlayer.trim()
@@ -18,9 +18,11 @@ function Menu (props) {
         firstPlayer: [first, cross],
         secondPlayer: [second, circle]
       })
-      console.log('foi')
     } else {
-      console.log('está faltando o nome de um jogador')
+      props.onPlay({
+        firstPlayer: [firstPlayer, cross],
+        secondPlayer: [secondPlayer, circle]
+      })
     }
   }
 
@@ -44,6 +46,7 @@ function Menu (props) {
             value={secondPlayer}
             onChange={setSecondPlayer}
           />
+
         </div>
 
         <Button 

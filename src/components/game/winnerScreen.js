@@ -3,7 +3,7 @@ import Button from '../button'
 import styles from './index.module.css'
 
 function WinnerScreen (props) {
-
+  
   return (
     <div className={styles.winnerScreen}>
       <img src={Trophy} alt="victory" />

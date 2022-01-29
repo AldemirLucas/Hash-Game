@@ -6,3 +6,30 @@
   width: 100%;
   padding: 0 15px;
 }
+
+.winnerScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+}
+
+.winnerScreen p {
+  color: var(--secondary-dark-color);
+  font-size: 30px;
+}
+
+.winnerScreen img {
+  width: 150px;
+  height: 150px;
+}
+
+.buttons {
+  width: 100%;
+  max-width: 250px;
+}

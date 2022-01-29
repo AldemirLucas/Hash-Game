@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import Scoreboard from './scoreboard'
 import Board from './board'
+import WinnerScreen from './winnerScreen'
 import styles from './index.module.css'
 
 function Game (props) {
   const [player1Points, setPlayer1Points] = useState(0)
   const [player2Points, setPlayer2Points] = useState(0)
+  const [winningPlayer, setWinningPlayer] = useState({})
 
   const scoreCount = (elm) => {
     if (elm.win === 'firstPlayer') {
@@ -18,13 +20,33 @@ function Game (props) {
   }
 
   const victoryCondition = (points ,name) => {
-    if (points === 3) {
-      console.log(`${name} ganhouuuuu`)
+    if (points === 1) {
+      setTimeout(() => {
+        setWinningPlayer({
+          show: true,
+          name: name
+        })
+      },1500)
     }
+  }
+
+  const Restart = () => {
+    setTimeout(() => {
+      setPlayer1Points(0)
+      setPlayer2Points(0)
+      setWinningPlayer({})
+    },1000)
   }
 
   return (
     <div className={styles.container}>
+
+      {winningPlayer.show && 
+        <WinnerScreen 
+          name= {winningPlayer.name} 
+          restart= {Restart}
+        />
+      }
 
       <Scoreboard
         firstPlayer= {props.firstPlayer[0]}

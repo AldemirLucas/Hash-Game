@@ -22,7 +22,7 @@
 
 .trophy span {
   height: 40px;
-  border-right: 4px solid #F0B17B;
+  border-right: 4px solid var(--secondary-dark-color);
 }
 
 .players {
@@ -53,7 +53,7 @@
 }
 
 .score p:last-child {
-  color: var(--font-dark-color);
+  color: var(--bg-dark-color);
 }
 
 .players .score:last-child {

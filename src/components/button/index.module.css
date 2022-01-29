@@ -18,5 +18,4 @@
 
 .button:hover {
   background-color: var(--secondary-light-color);
-  color: #fff;
 }

@@ -1,6 +1,7 @@
 .light {
   --bg-color: #FAF7EE;
   --bg-light-color: #EEE4DA;
+  --bg-dark-color: #756B62;
   --font-color: #756B62;
   --font-light-color: #B9B5AA;
   --font-dark-color: #C6AA90;
@@ -10,6 +11,21 @@
   --secondary-color: #FFE0C6;
   --secondary-light-color: #FFC595;
   --secondary-dark-color: #F0B17B;
+}
+
+.dark {
+  --bg-color: #47433f;
+  --bg-light-color: #EEE4DA;
+  --bg-dark-color: #a39588;
+  --font-color: #ffffff;
+  --font-light-color: #d4d1d1;
+  --font-dark-color: #1d1c1c;
+  --primary-color: #8b8178;
+  --primary-light-color: #CCC0B2;
+  --primary-dark-color: #E1DED3;
+  --secondary-color: #ffae6c;
+  --secondary-light-color: #ff9742;
+  --secondary-dark-color: #ec8225;
 }
 
 .App {

@@ -10,7 +10,7 @@
 .title {
   font-size: 2.4em;
   font-weight: bold;
-  color: #CFC9B7;
+  color: var(--font-color);
   margin-bottom: 2em;
 }
 
@@ -48,7 +48,7 @@
   min-height: 90px;
   top: 70%;
   border-radius: 50%;
-  background-color: var(--font-color);
+  background-color: var(--bg-dark-color);
 }
 
 .boxIcon img {
@@ -72,7 +72,7 @@
   text-align: center;
   box-sizing: border-box;
   background-color: var(--bg-light-color);
-  color: var(--font-color);
+  color: var(--bg-dark-color);
   border-radius: 4px;
   font-size: 16px;
   height: 40px;

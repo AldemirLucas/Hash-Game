@@ -1,9 +1,26 @@
- import { useState } from 'react'
- import Field from './field'
- import styles from './index.module.css'
- 
- function Board (props) {
+import { useState } from 'react'
+import Field from './field'
+import styles from './index.module.css'
+
+function isVictoryCondition(array) {
+  return (
+    array[0].mark === array[1].mark &&
+    array[1].mark === array[2].mark &&
+    array[0].mark !== ''
+  )
+}
+
+const isTieCondition = (fields) => {
+  let findEmpty = false
+  fields.forEach(elm => {
+    if (elm.mark === '') findEmpty = true
+  })
+  return !findEmpty
+}
+
+function Board (props) {
   const [isFirstPlayer, setIsFirstPlayer] = useState(true)
+  const [isPaused, setIsPaused] = useState(false)
   const [mark, setMark] = useState(props.firstPlayer)
   const [fields, setFields] = useState([
     {mark:''},{mark:''},{mark:''},
@@ -23,49 +40,42 @@
   ]
  
   const checkingMarkup = (elm) => {
-    if (isFirstPlayer === false) {
-      fields[elm.id].mark = mark
-      fields[elm.id].isFliped = true
-      setMark(props.firstPlayer)
-      setIsFirstPlayer(true)
-    } else {
-      fields[elm.id].mark = mark
-      fields[elm.id].isFliped = true
-      setMark(props.secondPlayer)
-      setIsFirstPlayer(false)
-    }
+    if(isPaused) return
+
+    const newFields = [...fields]
+
+    newFields[elm.id].mark = mark
+    newFields[elm.id].isFliped = true
+    setFields(newFields)
+    setMark(isFirstPlayer ? props.secondPlayer : props.firstPlayer)
+    setIsFirstPlayer(!isFirstPlayer)
     
     for (let i = 0; i < 8; i++) {
-      checkingVictory(WinningCombination[i])
-    }
-    
-    function checkingVictory(array) {
-      if (array[0].mark === array[1].mark && array[1].mark === array[2].mark && array[0].mark !== '') {
-        if (isFirstPlayer === true) {
-          props.win({
-            win : 'firstPlayer',
-          })
-          gameOver(true)
-        } else {
-          props.win({
-            win : 'secondPlayer',
-          })
-          gameOver(true)
-        }
+      if (isVictoryCondition(WinningCombination[i])) {
+        props.win({
+          win : isFirstPlayer ? 'firstPlayer' : 'secondPlayer'
+        })
+        return gameOver()
       }
+    }
+
+    if (isTieCondition(fields)) {
+      gameOver()
     }
   }
 
-  function gameOver(params) {
-    if (params === true){
+  function gameOver() {
+    setIsPaused(true)
+    setTimeout(() => {
       setFields([
         {mark:''},{mark:''},{mark:''},
         {mark:''},{mark:''},{mark:''},
         {mark:''},{mark:''},{mark:''},
       ])
-      setIsFirstPlayer(true)
-      setMark(props.firstPlayer)
-    }
+      setIsPaused(false)
+    },1500)
+    setIsFirstPlayer(true)
+    setMark(props.firstPlayer)
   }
 
   return (
@@ -75,14 +85,14 @@
         <Field
           key= {i}
           id= {i}
-          mark = {fields[i].mark}
-          isFliped = {fields[i].isFliped}
+          mark = {elm.mark}
+          isFliped = {elm.isFliped}
           checked = {checkingMarkup}
         />
       )}
 
     </div>
   )
- }
+}
 
- export default Board
+export default Board

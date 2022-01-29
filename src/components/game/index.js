@@ -23,7 +23,6 @@ function Game (props) {
     }
   }
 
-
   return (
     <div className={styles.container}>
 

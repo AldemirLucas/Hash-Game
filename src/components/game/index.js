@@ -8,9 +8,16 @@ import styles from './index.module.css'
 function Game (props) {
   const [player1Points, setPlayer1Points] = useState(0)
   const [player2Points, setPlayer2Points] = useState(0)
+  const [winnigRound, setWinnigRound] = useState()
   const [winningPlayer, setWinningPlayer] = useState({})
 
   const scoreCount = (elm) => {
+    const isRoundWon = elm.win === 'firstPlayer' ? props.firstPlayer[0] : props.secondPlayer[0]
+    setWinnigRound(isRoundWon)
+    setTimeout(() => {
+      setWinnigRound()
+    },1500)
+    
     if (elm.win === 'firstPlayer') {
       setPlayer1Points(player1Points + 1)
       victoryCondition(player1Points, props.firstPlayer[0])
@@ -56,6 +63,12 @@ function Game (props) {
         player1Points= {player1Points}
         player2Points= {player2Points}
       />
+
+      {winnigRound && 
+        <div className={styles.winnigRound}>
+          <p>{winnigRound} Venceu a Rodada</p>
+        </div>
+      }
       
       <Board 
         firstPlayer= {props.firstPlayer[1]}

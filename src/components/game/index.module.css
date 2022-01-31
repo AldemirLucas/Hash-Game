@@ -33,3 +33,14 @@
   width: 100%;
   max-width: 250px;
 }
+
+.winnigRound {
+  position: absolute;
+}
+
+.winnigRound p {
+  position: relative;     
+  bottom: 140px;
+  font-size: 24px;
+  color: var(--secondary-dark-color);
+}

@@ -22,7 +22,7 @@
 
 .trophy span {
   height: 40px;
-  border-right: 4px solid var(--secondary-dark-color);
+  border-right: 4px solid #F0B17B;
 }
 
 .players {
